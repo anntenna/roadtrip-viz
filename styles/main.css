@@ -1,0 +1,10 @@
+#map {
+	stroke: #fff;
+	fill: #ddd;
+}
+
+.route {
+	stroke: blue;
+	stroke-width: 1px;
+	fill: none;
+}
