@@ -58,13 +58,12 @@ function loadMap(usStates) {
 function parseLog(error, results) {
 	if (error) throw error;
 
-	debugger;
-	
+
 	//draw time axis
 	var firstStartdate = triplogGlobal[0].start_date;
 	drawTimeline(firstStartdate);
 	
-	animate();
+	animate(results);
 
 	logDataCF = crossfilter(triplogGlobal);
 	startDateDimension = logDataCF.dimension(function(d) { return d.start_date; });
@@ -129,24 +128,37 @@ function drawTimeline(firstStartdate) {
 
 }
 
-function animate() {
+function animate(routes) {
 	var timeCircle = timeSvg.select("#timeCircle");
+
+	var animateq = d3.queue();
+	var i = 0;
 
 	triplogGlobal.forEach(function(d) {
 		console.log(d.start_date);
-		timeCircle.transition()
-			.duration(10000)
-			.attr("cx", timeScale(new Date(d.start_date)));
+		
+		function renderRoute() {
+			var routeId = Date.parse(d.start_date);
+			var route = routes.find(function(r) { return r.properties.id == routeId; });
+			drawRoute(route, i);
+		}
 
-		var routeFile = routeFilesLoc + Date.parse(d.start_date) + routeFilesExt;
-		d3.json(routeFile, drawRoute);
-		debugger;
+		timeCircle.transition()
+			.duration(1000)
+			.attr("cx", timeScale(new Date(d.start_date)))
+			.ease(d3.easeLinear)
+			.delay(i * 2000)
+			.on("end", renderRoute());
+
+		
+		i++;
+		
 		
 	});
 
 }
 
-function drawRoute(route) {
+function drawRoute(route, j) {
 	var i = 0;
 	var coords = [];
 
@@ -175,6 +187,7 @@ function drawRoute(route) {
       .transition()
         .duration(1000)
         .ease(d3.easeLinear)
-        .attr("stroke-dashoffset", 0);
+        .attr("stroke-dashoffset", 0)
+		.delay(1000*(j+1) + 1000*j);
 }
 
