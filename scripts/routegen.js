@@ -9,10 +9,10 @@ var error, data;
 //console.log(roadtriplog[0]);
 
 roadtriplog.forEach(function(d) {
-	setTimeout(getRouteCallback,1000);
+	setTimeout(getRouteCallback,2000);
 
 	function getRouteCallback() {
-	routeGetter.getRoute(d.start_loc, d.end_loc, d.waypoints, d.start_date, d.name)
+	routeGetter.getRoute(d.start_loc, d.end_loc, d.waypoints, Date.parse(d.start_date), d.name)
 }
 
 });
