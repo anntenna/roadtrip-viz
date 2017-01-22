@@ -8,13 +8,12 @@ var error, data;
 
 //console.log(roadtriplog[0]);
 
-roadtriplog.forEach(function(d) {
-	setTimeout(getRouteCallback,2000);
-
+roadtriplog.forEach(function(element, index) {
+//	console.log(index)
+	setTimeout(getRouteCallback, 200 * index);
 	function getRouteCallback() {
-	routeGetter.getRoute(d.start_loc, d.end_loc, d.waypoints, Date.parse(d.start_date), d.name)
-}
-
+		routeGetter.getRoute(element.start_loc, element.end_loc, element.waypoints, Date.parse(element.start_date), element.name)
+	}
 });
 
 
