@@ -42,7 +42,7 @@ function parseLog(triplog) {
 	
 
 	triplog.forEach(function(d) {
-		var routeFile = routeFilesLoc + d.start_date + routeFilesExt;
+		var routeFile = routeFilesLoc + Date.parse(d.start_date) + routeFilesExt;
 		d3.json(routeFile, drawRoute);
 	});
 }
