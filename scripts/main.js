@@ -1,9 +1,18 @@
 var w=960;
 var h=720;
+var timeh = 100;
+var padding = 25;
 var routeFilesLoc = "scripts/geojson/";
 var routeFilesExt = ".geojson";
+var timeScale = d3.scaleTime();
+var triplogGlobal;
 
-var svg = d3.select("div").append("svg")
+var timeSvg = d3.select("div").append("svg")
+	.attr("width", w)
+	.attr("height", timeh)
+	.attr("id", "timeline");
+
+var mapSvg = d3.select("div").append("svg")
 	.attr("width", w)
 	.attr("height", h)
 	.attr("id", "map");
@@ -19,12 +28,25 @@ d3.queue()
 
 
 function ready(error, usStates, triplog) {
+	triplogGlobal = triplog;
+
+	//sort data
+	triplogGlobal.sort(function(x, y){
+		   return d3.ascending(Date.parse(x.start_date), Date.parse(y.start_date));
+        });
+	
 	loadMap(usStates);
-	parseLog(triplog);	
+
+	var q = d3.queue();
+	triplogGlobal.forEach(function(d) {
+		var routeFile = routeFilesLoc + Date.parse(d.start_date) + routeFilesExt;
+		q.defer(d3.json, routeFile);
+	})
+	q.awaitAll(parseLog);	
 }
 
 function loadMap(usStates) {
-	var usagroup = svg.append("g").attr("class", "usa");
+	var usagroup = mapSvg.append("g").attr("class", "usa");
 
 	usagroup.selectAll("path")
 		.data(usStates.features)
@@ -33,23 +55,95 @@ function loadMap(usStates) {
 		.attr("d", path);
 }
 
-function parseLog(triplog) {
+function parseLog(error, results) {
+	if (error) throw error;
 
-	//draw time axis
-	triplog.sort(function(x, y){
-		   return d3.ascending(Date.parse(x.start_date), Date.parse(y.start_date));
-        });
-
-	logData = crossfilter(triplog);
-	startDateDimension = logData.dimension(function(d) { return d.start_date; });
+	debugger;
 	
+	//draw time axis
+	var firstStartdate = triplogGlobal[0].start_date;
+	drawTimeline(firstStartdate);
+	
+	animate();
 
-debugger;
+	logDataCF = crossfilter(triplogGlobal);
+	startDateDimension = logDataCF.dimension(function(d) { return d.start_date; });
 
-	triplog.forEach(function(d) {
-		var routeFile = routeFilesLoc + d.start_date + routeFilesExt;
+}
+
+function drawTimeline(firstStartdate) {
+	var firstStartDate = new Date(firstStartdate);
+	var firstStartYear = firstStartDate.getFullYear();
+
+	var jan1StartDate = new Date("January 1, " + firstStartYear);
+	var todayDate = new Date();
+	var todayYear = todayDate.getFullYear();
+
+	timeScale.domain([jan1StartDate, todayDate]);
+	timeScale.range([0 + padding, w - padding]);
+
+	var timeGroup = timeSvg.append("g")
+		.classed("timeline", true);
+	
+	//draw line
+	var timeLine = timeGroup.append("line")
+		.attr("x1", timeScale(jan1StartDate))
+		.attr("y1", timeh/2)
+		.attr("x2", timeScale(todayDate))
+		.attr("y2", timeh/2)
+		.attr("id", "timeline");
+	
+	//add ticks
+	var jan1Dates = [];
+	var i;
+
+	for(i = 0; i <= todayYear - firstStartYear; i++) {
+		jan1Dates[i] = new Date("January 1, "  + (firstStartYear + i));
+	}
+
+	timeGroup.selectAll("line.timeTick")
+		.data(jan1Dates)
+		.enter()
+		.append("line")
+		.attr("class", "timeTick")
+		.attr("x1", function(d) { return timeScale(d); })
+		.attr("y1", timeh/2)
+		.attr("x2", function(d) { return timeScale(d); })
+		.attr("y2", timeh/2 - 15);
+
+	//add tick labels
+	timeGroup.selectAll("text")
+		.data(jan1Dates)
+		.enter()
+		.append("text")
+		.attr("class", "timeTick")
+		.attr("x", function(d) { return timeScale(d) - 13; })
+		.attr("y", timeh/2 - padding)
+		.text(function(d) { return d.getFullYear();});
+
+	timeGroup.append("circle")
+		.attr("cx", padding)
+		.attr("cy", timeh/2)
+		.attr("r", 7.5)
+		.attr("id", "timeCircle");
+
+}
+
+function animate() {
+	var timeCircle = timeSvg.select("#timeCircle");
+
+	triplogGlobal.forEach(function(d) {
+		console.log(d.start_date);
+		timeCircle.transition()
+			.duration(10000)
+			.attr("cx", timeScale(new Date(d.start_date)));
+
+		var routeFile = routeFilesLoc + Date.parse(d.start_date) + routeFilesExt;
 		d3.json(routeFile, drawRoute);
+		debugger;
+		
 	});
+
 }
 
 function drawRoute(route) {
@@ -64,7 +158,7 @@ function drawRoute(route) {
 	route.features[0].geometry.coordinates = coords;
 	route.features.splice(1, route.features.length-1);
 
-	var routegroup = svg.append("g").attr("class", "routeGroup")
+	var routegroup = mapSvg.append("g").attr("class", "routeGroup")
 
 	var linePath = routegroup.selectAll("path")
 		.data(route.features)

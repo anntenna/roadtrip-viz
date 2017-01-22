@@ -1,10 +1,31 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
 #map {
 	stroke: #fff;
 	fill: #ddd;
 }
 
 .route {
-	stroke: blue;
+	stroke: #1c75bc;
 	stroke-width: 1px;
 	fill: none;
+}
+
+line {
+	stroke: #000;
+	stroke-width: 0.5px;
+	fill: none;
+}
+
+circle {
+	fill: #1c75bc;
+}
+
+text {
+	fill: #ccc;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	stroke-width: 0px;
 }
