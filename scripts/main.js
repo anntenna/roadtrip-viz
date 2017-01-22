@@ -26,20 +26,25 @@ function ready(error, usStates, triplog) {
 function loadMap(usStates) {
 	var usagroup = svg.append("g").attr("class", "usa");
 
-	usagroup.attr("y", 100);
-
 	usagroup.selectAll("path")
 		.data(usStates.features)
 		.enter()
 		.append("path")
-		.attr("d", path)
-		.attr("y", 100);
+		.attr("d", path);
 }
 
 function parseLog(triplog) {
 
 	//draw time axis
+	triplog.sort(function(x, y){
+		   return d3.ascending(Date.parse(x.start_date), Date.parse(y.start_date));
+        });
+
+	logData = crossfilter(triplog);
+	startDateDimension = logData.dimension(function(d) { return d.start_date; });
 	
+
+debugger;
 
 	triplog.forEach(function(d) {
 		var routeFile = routeFilesLoc + Date.parse(d.start_date) + routeFilesExt;
