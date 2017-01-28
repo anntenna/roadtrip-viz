@@ -7,10 +7,14 @@ body {
 	fill: #ddd;
 }
 
-.route {
+path.route {
 	stroke: #1c75bc;
 	stroke-width: 1px;
 	fill: none;
+}
+
+path.active {
+	stroke-width: 3px;
 }
 
 line {
@@ -28,4 +32,10 @@ text {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	stroke-width: 0px;
+}
+
+circle.routeMarker {
+	fill: darkorange;
+	stroke-width: 1.5px;
+	stroke: #1c75bc;
 }

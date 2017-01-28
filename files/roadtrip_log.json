@@ -4,11 +4,11 @@
    "trippers": "Harish, Anusha, Sastry, Supriya, Anshul",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Mt. St. Helens, WA",
+   "end_loc": "Seattle, WA",
    "start_date": "September 3, 2011",
    "end_date": "September 4, 2011",
    "duration_days": 2,
-   "waypoints": "",
+   "waypoints": "Mt. St. Helens, WA",
    "miles": 370
  },
  {
@@ -16,11 +16,11 @@
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Sunnyvale, CA",
+   "end_loc": "Seattle, WA",
    "start_date": "December 27, 2011",
    "end_date": "January 2, 2012",
    "duration_days": 7,
-   "waypoints": "",
+   "waypoints": "Sunnyvale, CA",
    "miles": 1678
  },
  {
@@ -28,11 +28,11 @@
    "trippers": "Harish, Anusha, TAMU friends",
    "type": "Round trip",
    "start_loc": "College Station, TX",
-   "end_loc": "South Padre Island, TX",
+   "end_loc": "College Station, TX",
    "start_date": "March 10, 2012",
    "end_date": "March 12, 2012",
    "duration_days": 3,
-   "waypoints": "",
+   "waypoints": "South Padre Island, TX",
    "miles": 806
  },
  {
@@ -40,11 +40,11 @@
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Painted Hills, OR",
+   "end_loc": "Seattle, WA",
    "start_date": "May 12, 2012",
    "end_date": "May 12, 2012",
    "duration_days": 1,
-   "waypoints": "",
+   "waypoints": "Painted Hills, OR",
    "miles": 694
  },
  {
@@ -52,11 +52,11 @@
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "College Station, TX",
-   "end_loc": "San Antonio, TX",
+   "end_loc": "College Station, TX",
    "start_date": "November 23, 2012",
    "end_date": "November 23, 2012",
    "duration_days": 1,
-   "waypoints": "Austin, TX",
+   "waypoints": "Austin, TX|San Antonio, TX",
    "miles": 444
  },
  {
@@ -64,23 +64,23 @@
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Sunnyvale, CA",
+   "end_loc": "Seattle, WA",
    "start_date": "December 27, 2012",
    "end_date": "January 2, 2013",
    "duration_days": 7,
-   "waypoints": "Eugene, OR|Big Sur, CA",
-   "miles": 1678
+   "waypoints": "Eugene, OR|Sunnyvale, CA|Big Sur, CA",
+   "miles": 1881
  },
  {
    "name": "Yellowstone",
    "trippers": "Harish, Anusha, Nishanth, Ankur, Monica ",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Yellowstone National Park",
+   "end_loc": "Seattle, WA",
    "start_date": "May 25, 2013",
    "end_date": "May 29, 2013",
    "duration_days": 5,
-   "waypoints": "",
+   "waypoints": "Yellowstone National Park",
    "miles": 1576
  },
  {
@@ -88,11 +88,11 @@
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Deception Pass, WA",
+   "end_loc": "Seattle, WA",
    "start_date": "June 1, 2013",
    "end_date": "June 1, 2013",
    "duration_days": 1,
-   "waypoints": "",
+   "waypoints": "Deception Pass, WA",
    "miles": 168.8
  },
  {
@@ -100,47 +100,47 @@
    "trippers": "Harish, Anusha, Sabarish",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Mt. Baker Ski Area",
+   "end_loc": "Seattle, WA",
    "start_date": "August 31, 2013",
    "end_date": "August 31, 2013",
    "duration_days": 1,
-   "waypoints": "Chuckanut Dr, WA",
-   "miles": 279
+   "waypoints": "Mt. Baker Ski Area|Chuckanut Dr, WA",
+   "miles": 274
  },
  {
    "name": "Birthday in Portland, OR",
    "trippers": "Harish, Anusha, Johannes, Helen",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Portland, OR",
+   "end_loc": "Seattle, WA",
    "start_date": "October 20, 2013",
    "end_date": "October 22, 2013",
    "duration_days": 1,
-   "waypoints": "",
-   "miles": 174
+   "waypoints": "Portland, OR",
+   "miles": 348
  },
  {
    "name": "Walla walla",
    "trippers": "Harish, Anusha, Nishanth ",
    "type": "Round trip",
    "start_loc": "Seattle, WA",
-   "end_loc": "Walla walla, WA",
+   "end_loc": "Seattle, WA",
    "start_date": "April 1, 2014",
    "end_date": "April 2, 2014",
    "duration_days": 2,
-   "waypoints": "Portland, OR|Palouse Falls, WA",
-   "miles": 708
+   "waypoints": "Portland, OR|Palouse Falls, WA|Walla walla, WA",
+   "miles": 785
  },
  {
    "name": "Colorado",
    "trippers": "Harish, Anusha, Johannes, Helen, Nishanth",
    "type": "Round trip",
    "start_loc": "Boulder, CO",
-   "end_loc": "Moab, UT",
+   "end_loc": "Boulder, CO",
    "start_date": "May 27, 2014",
    "end_date": "June 2, 2014",
    "duration_days": 6,
-   "waypoints": "Glenwood Springs, CO",
+   "waypoints": "Glenwood Springs, CO|Moab, UT",
    "miles": 732
  },
  {
@@ -160,11 +160,11 @@
    "trippers": "Harish, Anusha ",
    "type": "Round trip",
    "start_loc": "New York",
-   "end_loc": "Columbus, OH",
+   "end_loc": "New York",
    "start_date": "August 2, 2015",
    "end_date": "August 3, 2015",
    "duration_days": 2,
-   "waypoints": "",
+   "waypoints": "Columbus, OH",
    "miles": 1066
  },
  {
@@ -172,35 +172,23 @@
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "New York",
-   "end_loc": "Acadia National Park",
+   "end_loc": "New York",
    "start_date": "September 5, 2015",
    "end_date": "September 7, 2015",
    "duration_days": 3,
-   "waypoints": "",
+   "waypoints": "Acadia National Park",
    "miles": 964
- },
- {
-   "name": "New Zealand",
-   "trippers": "Harish, Anusha",
-   "type": "Round trip",
-   "start_loc": "Auckland, New Zealand",
-   "end_loc": "Taupo, New Zealand",
-   "start_date": "October 30, 2015",
-   "end_date": "November 2, 2015",
-   "duration_days": 4,
-   "waypoints": "Matamata, New Zealand",
-   "miles": 444
  },
  {
    "name": "Rhode Island",
    "trippers": "Harish, Anusha, Amanda",
    "type": "Round trip",
    "start_loc": "New York, NY",
-   "end_loc": "Newport, Rhode Island",
+   "end_loc": "New York, NY",
    "start_date": "March 4, 2016",
    "end_date": "March 4, 2016",
    "duration_days": 1,
-   "waypoints": "",
+   "waypoints": "Newport, Rhode Island",
    "miles": 358
  },
  {
@@ -220,36 +208,36 @@
    "trippers": "Harish, Anusha, Nishanth, Johannes",
    "type": "Round trip",
    "start_loc": "Las Vegas, NV",
-   "end_loc": "Zion National Park",
+   "end_loc": "Las Vegas, NV",
    "start_date": "September 1, 2016",
    "end_date": "September 5, 2016",
    "duration_days": 5,
-   "waypoints": "Escalante, UT",
-   "miles": 590
+   "waypoints": "Escalante, UT|Zion National Park|Hoover Dam, Nevada",
+   "miles": 661
  },
  {
    "name": "Vancouver & Squamish",
    "trippers": "Harish, Anusha",
    "type": "Round trip",
    "start_loc": "Portland, OR",
-   "end_loc": "Vancouver, BC",
+   "end_loc": "Portland, OR",
    "start_date": "September 22, 2016",
    "end_date": "September 26, 2016",
    "duration_days": 5,
-   "waypoints": "Squamish, BC",
-   "miles": 783
+   "waypoints": "Seattle, WA|Vancouver, BC|Squamish, BC",
+   "miles": 712
  },
  {
    "name": "Spring Break 2011",
    "trippers": "Harish, Anshul, Sastry, Ninad",
    "type": "Round trip",
    "start_loc": "Pittsburgh, PA",
-   "end_loc": "Key West, FL",
+   "end_loc": "Pittsburgh, PA",
    "start_date": "March 11, 2011",
    "end_date": "March 15, 2011",
    "duration_days": 5,
-   "waypoints": "Washington, DC|Virginia Beach, VA|Raleigh, NC|Savannah, GA",
-   "miles": 783
+   "waypoints": "Washington, DC|Virginia Beach, VA|Raleigh, NC|Savannah, GA|Key West, FL",
+   "miles": 2954
  },
  {
    "name": "Dallas to Colorado",
@@ -261,7 +249,7 @@
    "end_date": "May 24, 2014",
    "duration_days": 1,
    "waypoints": "",
-   "miles": 783
+   "miles": 811
  },
  {
    "name": "Oklahoma and Arkansas",
@@ -273,6 +261,6 @@
    "end_date": "June 8, 2014",
    "duration_days": 2,
    "waypoints": "Talihina, OK|Mena, AK",
-   "miles": 783
+   "miles": 516
  }
 ]

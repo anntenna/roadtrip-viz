@@ -16,11 +16,41 @@
 	<script src="scripts/node_modules/d3-scale/build/d3-scale.js"></script>
 	<link rel="stylesheet" href="styles/main.css" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  		crossorigin="anonymous"></script>
+
+	<!-- Bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
-	<title>Flowers</title>
+	<title>My road trips</title>
 </head>
 <body>
 	<div class="container">
+		<div class="row" id="timeline">
+
+		</div>
+		<div class="row">
+			<div class="col-md-2" id="trip-details">
+				<h3>This trip:</h3>
+				<p id="tripNamePara"></p>
+				<p><span id="tripMiles"></span> miles</p>
+				<p id="tripRoutePara"></p>
+				<p><span id="tripDays"></span> day(s) on the road</p>
+				<br/>
+				<h3>Overall:</h3>
+				<p><span id="overallMiles"></span> miles</p>
+				<p><span id="overallDays"></span> day(s) on the road</p>
+				
+			</div>
+			<div class="col-md-8" id="map">
+			</div>
+		</div>
 	</div>
 </body>
 <footer>
