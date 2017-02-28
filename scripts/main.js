@@ -6,6 +6,8 @@ var routeFilesLoc = "scripts/geojson/";
 var routeFilesExt = ".geojson";
 var timeScale = d3.scaleTime();
 var triplogGlobal;
+const EARTH_CIRCUMFERENCE_MILES = 24901;
+const MOON_CIRCUMFERENCE_MILES = 6786;
 
 var timeSvg = d3.select("div#timeline").append("svg")
 	.attr("width", w)
@@ -155,7 +157,7 @@ function animate(routes) {
 	var i = 0;
 
 	triplogGlobal.forEach(function(d) {
-		console.log(d.start_date);
+		//console.log(d.start_date);
 		
 		function renderRoute() {
 			var routeId = Date.parse(d.start_date);
@@ -238,6 +240,32 @@ function animate(routes) {
 					d3.select("span#overallDays").text(parseInt(i(t),10));
 				};
 			});
+
+		// var earthText = d3.select("span#earthText");
+		// overallMilesDiv
+		// 	.transition()
+		// 	.ease(d3.easeQuadOut)
+		// 	.duration(1000)
+		// 	.delay(1000*(i+1) + 1000*i)
+		// 	.tween("text", function(b) {
+		// 		var i = d3.interpolate(d3.select("span#earthText").node().textContent, Math.round((parseInt(d3.select("span#overallMiles").node().textContent, 10) + d.miles)/EARTH_CIRCUMFERENCE_MILES,3));
+		// 		return function(t) {
+		// 			d3.select("span#earthText").text(parseInt(i(t),10));
+		// 		};
+		// 	});
+
+		// var moonText = d3.select("span#moonText");
+		// overallMilesDiv
+		// 	.transition()
+		// 	.ease(d3.easeQuadOut)
+		// 	.duration(1000)
+		// 	.delay(1000*(i+1) + 1000*i)
+		// 	.tween("text", function(b) {
+		// 		var i = d3.interpolate(d3.select("span#moonText").node().textContent, Math.round((parseInt(d3.select("span#overallMiles").node().textContent, 10) + d.miles)/MOON_CIRCUMFERENCE_MILES,3));
+		// 		return function(t) {
+		// 			d3.select("span#moonText").text(parseInt(i(t),10));
+		// 		};
+		// 	});
 		
 
 		i++;

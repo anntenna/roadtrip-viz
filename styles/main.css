@@ -39,3 +39,7 @@ circle.routeMarker {
 	stroke-width: 1.5px;
 	stroke: #1c75bc;
 }
+
+span {
+	font-size: 36px;
+}
